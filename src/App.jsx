@@ -1,7 +1,12 @@
 import { Routes, Route } from "react-router";
 //import { useState } from "react";
 import "./App.css";
-import { HeroSection, SkillSection, ProjectSection } from "./components";
+import {
+  HeroSection,
+  SkillSection,
+  ProjectSection,
+  AboutMe,
+} from "./components";
 
 function App() {
   return (
@@ -13,6 +18,7 @@ function App() {
             <HeroSection />
             <SkillSection />
             <ProjectSection />
+            <AboutMe />
           </>
         }
       />
