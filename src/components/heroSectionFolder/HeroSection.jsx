@@ -44,7 +44,7 @@ function HeroSection({ isExtend, setIsExtend }) {
       className="max-h-200  flex flex-col  items-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden"
       ref={boxRef}
     >
-      <NavBar isExtend={isExtend} setIsExtend={setIsExtend} />
+      <NavBar setIsExtend={setIsExtend} />
       {isExtend && (
         <div className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50  bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145]  rounded-md overflow-hidden">
           {extendSubdiv}

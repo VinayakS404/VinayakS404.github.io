@@ -1,8 +1,8 @@
 import hamburgerIcon from "../../assets/hamburger.png";
 //import chess from "../assets/knight.png";
-function NavBar({isExtend, setIsExtend }) {
+function NavBar({ setIsExtend }) {
   function extendNavBar() {
-    setIsExtend(!isExtend);
+    setIsExtend(prev => !prev);
   }
   const navBarTittle = ["Home", "Skill", "About", "Project", "Contact"];
   const navArray = navBarTittle.map((items) => {
