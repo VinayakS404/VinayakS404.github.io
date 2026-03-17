@@ -16,7 +16,7 @@ function NavBar({ setIsExtend }) {
     );
   });
   return (
-    <>
+    <div className="fixed z-50 top-0 left-0 ">
       <nav className="hidden md:flex fixed z-50 h-15 w-full px-20 bg-[#202021]/60 backdrop-blur-xl items-center justify-end text-xl ]  border-b border-[#313136] ">
         <ul className="flex items-center gap-2 text-base">{navArray}</ul>
       </nav>
@@ -27,7 +27,7 @@ function NavBar({ setIsExtend }) {
       >
         <img className="h-7" src={hamburgerIcon} alt="hamburger icon" />
       </div>
-    </>
+    </div>
   );
 }
 export default NavBar;
