@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import mapIcon from "../../assets/maps.png";
 import githubIcon from "../../assets/github.png";
 import linkedinIcon from "../../assets/linkedin.png";
@@ -5,22 +6,51 @@ import mailIcon from "../../assets/email.png";
 import NavBar from "./NavBar";
 import { iconHover } from "../../data/style";
 function HeroSection({ isExtend, setIsExtend }) {
-  const extendTabTittle = ["Home", "Skill", "About", "Project", "Contact"];
+  const extendTabTittle = [
+    "Home",
+    "Skill",
+    "About",
+    "Project",
+    "Contact",
+    "sdjnfjsnd",
+  ];
+  const boxRef = useRef();
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (boxRef.current && !boxRef.current.contains(event.target)) {
+        setIsExtend(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const extendSubdiv = extendTabTittle.map((items) => {
     return (
-      <div className=" w-full h-15  flex items-center justify-center hover:border-y">
+      <div
+        className=" w-full h-15  flex items-center justify-center hover:border-y"
+        key={items}
+      >
         {items}
       </div>
     );
   });
   return (
-    <div className="max-h-200  flex flex-col  items-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden">
+    <div
+      className="max-h-200  flex flex-col  items-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden"
+      ref={boxRef}
+    >
+      <NavBar isExtend={isExtend} setIsExtend={setIsExtend} />
       {isExtend && (
         <div className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50  bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145]  rounded-md overflow-hidden">
           {extendSubdiv}
         </div>
       )}
-      <NavBar isExtend={isExtend}setIsExtend={setIsExtend} />
+
       <div className=" h-[60%] flex flex-col items-center justify-center  gap-3 pt-50 md:pt-70">
         <div className="flex items-center gap-1">
           <span className="relative  h-2 w-2 md:h-2.5 md:w-2.5 mb-1 md:mb-0  bg-[#55ff00] rounded-full translate-y-0.5 "></span>
