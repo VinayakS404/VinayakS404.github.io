@@ -5,6 +5,7 @@ import linkedinIcon from "../../assets/linkedin.png";
 import mailIcon from "../../assets/email.png";
 import NavBar from "./NavBar";
 import { iconHover } from "../../data/style";
+
 function HeroSection({ isExtend, setIsExtend }) {
   const extendTabTittle = [
     "Home",
@@ -14,10 +15,18 @@ function HeroSection({ isExtend, setIsExtend }) {
     "Contact",
     "sdjnfjsnd",
   ];
-  const boxRef = useRef();
+
+  const navRef = useRef();
+  const dropdownRef = useRef();
+
   useEffect(() => {
     function handleClickOutside(event) {
-      if (boxRef.current && !boxRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        navRef.current &&
+        !navRef.current.contains(event.target)
+      ) {
         setIsExtend(false);
       }
     }
@@ -39,19 +48,23 @@ function HeroSection({ isExtend, setIsExtend }) {
       </div>
     );
   });
+
   return (
-    <div
-      className="max-h-200  flex flex-col  items-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden"
-      ref={boxRef}
-    >
-      <NavBar setIsExtend={setIsExtend} />
+    <div className="min-h-screen max-h-500  flex flex-col  items-center justify-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden">
+      <div ref={navRef}>
+        <NavBar setIsExtend={setIsExtend} />
+      </div>
+
       {isExtend && (
-        <div className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50  bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145]  rounded-md overflow-hidden">
+        <div
+          className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50  bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145]  rounded-md overflow-hidden"
+          ref={dropdownRef}
+        >
           {extendSubdiv}
         </div>
       )}
 
-      <div className=" h-[60%] flex flex-col items-center justify-center  gap-3 pt-50 md:pt-70">
+      <div className=" h-[60%] flex flex-col items-center justify-center  gap-3 pt-20 md:pt-40">
         <div className="flex items-center gap-1">
           <span className="relative  h-2 w-2 md:h-2.5 md:w-2.5 mb-1 md:mb-0  bg-[#55ff00] rounded-full translate-y-0.5 "></span>
           <p className="  text-sm  md:text-md bg-linear-to-r from-transparent via-black/90 to-transparent">
@@ -71,6 +84,7 @@ function HeroSection({ isExtend, setIsExtend }) {
           </p>
         </div>
       </div>
+
       <div className="  h-[30%]  flex flex-col sm:flex-row  items-center sm:items-end justify-center text-2xl gap-3 md:gap-8 mb-[calc(100%-97%)] ">
         <div className="flex flex-col items-center border-t border-l border-[#404145] md:border-none bg-[rgb(49,49,57)]/50 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none  p-5 rounded-2xl">
           <div className=" ">
@@ -157,11 +171,14 @@ function HeroSection({ isExtend, setIsExtend }) {
               </a>
             </div>
 
-            <p className="text-center   text-sm  md:text-xl ">Download CV</p>
+            <p className="text-center   text-sm  md:text-xl ">
+              Download CV
+            </p>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
 export default HeroSection;
