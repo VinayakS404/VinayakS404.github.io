@@ -6,6 +6,8 @@ import tailwind from "../assets/tailwind-logo.svg";
 import figma from "../assets/figma-logo.svg";
 import java from "../assets/java-logo.png";
 import springBoot from "../assets/spring-boot-logo.png";
+import mySQL from "../assets/MySQL_logo.svg.png";
+import postgres from "../assets/Postgresql_elephant.svg.png";
 
 const rawFrontEndData = [
   {
@@ -59,6 +61,19 @@ const rawBackEndData = [
     desc: "Java backend framework",
     img: springBoot,
     bg: "bg-[#3a5c30]",
+  },
+  {
+    name: "MySQL",
+    desc: "Relational database",
+    img: mySQL,
+    height: "h-6",
+    bg: "bg-[white]",
+  },
+  {
+    name: "PostgreSQL",
+    desc: "Advanced relational database",
+    img: postgres,
+    bg: "bg-[#41697d]",
   },
 ];
 
