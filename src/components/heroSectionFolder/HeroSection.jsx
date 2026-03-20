@@ -6,14 +6,13 @@ import mailIcon from "../../assets/email.png";
 import NavBar from "./NavBar";
 import { iconHover } from "../../data/style";
 
-function HeroSection({ isExtend, setIsExtend }) {
+function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
   const extendTabTittle = [
     "Home",
     "Skill",
     "About",
     "Project",
     "Contact",
-    "sdjnfjsnd",
   ];
 
   const navRef = useRef();
@@ -38,13 +37,18 @@ function HeroSection({ isExtend, setIsExtend }) {
     };
   }, []);
 
-  const extendSubdiv = extendTabTittle.map((items) => {
+  const extendSubdiv = extendTabTittle.map((item) => {
     return (
       <div
         className=" w-full h-15  flex items-center justify-center hover:border-y"
-        key={items}
+        key={item}
+        onClick={() => {
+          const id = item.toLowerCase();
+          scrollRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
+          setIsExtend(false); 
+        }}
       >
-        {items}
+        {item}
       </div>
     );
   });
@@ -52,7 +56,7 @@ function HeroSection({ isExtend, setIsExtend }) {
   return (
     <div className="min-h-screen max-h-500  flex flex-col  items-center justify-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden">
       <div ref={navRef}>
-        <NavBar setIsExtend={setIsExtend} />
+        <NavBar setIsExtend={setIsExtend} scrollRefs={scrollRefs} />
       </div>
 
       {isExtend && (
@@ -171,9 +175,7 @@ function HeroSection({ isExtend, setIsExtend }) {
               </a>
             </div>
 
-            <p className="text-center   text-sm  md:text-xl ">
-              Download CV
-            </p>
+            <p className="text-center   text-sm  md:text-xl ">Download CV</p>
           </div>
         </div>
       </div>
