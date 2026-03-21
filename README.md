@@ -1,12 +1,12 @@
 ## Portfolio Website V1
 
-This is my personal portfolio website where I showcase my projects, skills, and learning journey in web development. The site presents my work in a clean and responsive layout and provides detailed information about each project.
+This is my personal portfolio website built to showcase my projects, skills, and progress in web development. It highlights my work through a clean, responsive design and provides detailed insights into each project.
 
 ### Features
-- Responsive design for different screen sizes
-- Project showcase section with detailed pages
-- Clean and simple user interface
-- Easy navigation
+- Fully responsive design across devices
+- Dedicated project showcase with detailed views
+- Clean and minimal user interface
+- Smooth and intuitive navigation
 
 ### Purpose
-The goal of this portfolio is to present my work, track my learning progress, and share the projects I build while improving my development skills.
+The purpose of this portfolio is to present my work, document my learning journey, and continuously improve my development skills by building and sharing real-world projects.
