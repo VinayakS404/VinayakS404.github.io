@@ -1,4 +1,4 @@
 function AboutMe() {
-  return <div className="h-300 bg-amber-50"></div>;
+  return <div className="h-100 bg-amber-100 flex items-center justify-center">About Me section</div>;
 }
 export default AboutMe;

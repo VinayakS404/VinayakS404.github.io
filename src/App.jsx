@@ -30,12 +30,11 @@ function App() {
               <SkillSection />
             </section>
 
-            <section ref={(el) => (scrollRefs.current.project = el)}>
-              <ProjectSection />
-            </section>
-
             <section ref={(el) => (scrollRefs.current.about = el)}>
               <AboutMe />
+            </section>
+            <section ref={(el) => (scrollRefs.current.project = el)}>
+              <ProjectSection />
             </section>
 
             <section ref={(el) => (scrollRefs.current.contact = el)}>
