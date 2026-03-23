@@ -2,5 +2,6 @@ import HeroSection from "./heroSectionFolder/HeroSection";
 import SkillSection from "./SkillSection";
 import ProjectSection from "./projectSectionFolder/ProjectSection";
 import AboutMe from "./AboutMe";
+import Contact from "./Contact";
 
-export { HeroSection, SkillSection, ProjectSection, AboutMe };
+export { HeroSection, SkillSection, ProjectSection, AboutMe,Contact };

@@ -6,6 +6,7 @@ import {
   SkillSection,
   ProjectSection,
   AboutMe,
+  Contact,
 } from "./components";
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
               <AboutMe />
             </section>
 
-            <section ref={(el) => (scrollRefs.current.contact = el)}></section>
+            <section ref={(el) => (scrollRefs.current.contact = el)}>
+              <Contact />
+            </section>
           </>
         }
       />
