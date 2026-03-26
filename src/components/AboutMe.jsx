@@ -4,17 +4,14 @@ function AboutMe() {
       <div className="max-w-287">
         <div className="flex flex-col items-start">
           <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full max-w-2xl leading-tight">
-            Current&nbsp;
-            <span className="text-blue-500 font-bold block md:inline">
-              technologies
-            </span>
+            About&nbsp;
+            <span className="text-blue-500 font-bold block md:inline">Me</span>
           </p>
           <p className="text-gray-300 max-w-6xl  pt-4 md:pt-8 text-base md:text-[19px]">
-            These are the technologies I'm currently working with as I continue
-            building projects and improving my
-            <span className="text-blue-500 font-bold">
-              &nbsp;practical skills&nbsp;
-            </span>
+            19-year-old Full-Stack Developer and BCA student at Kerala
+            University, specializing in building cinematic web applications with
+            Java, React, and Tailwind CSS.
+            
           </p>
         </div>
         <div className="text-white text-xl mt-20">
