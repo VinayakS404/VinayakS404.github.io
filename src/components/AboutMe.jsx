@@ -1,20 +1,19 @@
 function AboutMe() {
   return (
-    <div className="relative pt-50 flex flex-col items-center justify-center px-5 w-full">
+    <div className="relative pt-50 flex flex-col items-center justify-center px-10 md:px-18 w-full">
       <div className="max-w-287">
         <div className="flex flex-col items-start">
-          <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full max-w-2xl leading-tight">
+          <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full  leading-tight bg-amber-400">
             About&nbsp;
-            <span className="text-blue-500 font-bold block md:inline">Me</span>
+            <span className="text-blue-500 font-bold  ">Me</span>
           </p>
-          <p className="text-gray-300 max-w-6xl  pt-4 md:pt-8 text-base md:text-[19px]">
+          <p className="text-gray-300 pt-4 md:pt-8 text-base md:text-[19px]">
             19-year-old Full-Stack Developer and BCA student at Kerala
             University, specializing in building cinematic web applications with
             Java, React, and Tailwind CSS.
-            
           </p>
         </div>
-        <div className="text-white text-xl mt-20">
+        <div className="text-white  text-lg md:text-[19px] mt-20">
           I am a
           <span className="text-blue-500 font-bold  ">
             &nbsp;19-year-old&nbsp;
