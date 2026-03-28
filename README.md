@@ -7,6 +7,3 @@ This is my personal portfolio website built to showcase my projects, skills, and
 - Dedicated project showcase with detailed views
 - Clean and minimal user interface
 - Smooth and intuitive navigation
-
-### Purpose
-The purpose of this portfolio is to present my work, document my learning journey, and continuously improve my development skills by building and sharing real-world projects.
