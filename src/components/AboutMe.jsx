@@ -3,7 +3,7 @@ function AboutMe() {
     <div className="relative pt-50 flex flex-col items-center justify-center px-10 md:px-18 w-full">
       <div className="max-w-287">
         <div className="flex flex-col items-start">
-          <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full  leading-tight bg-amber-400">
+          <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full  leading-tight ">
             About&nbsp;
             <span className="text-blue-500 font-bold  ">Me</span>
           </p>
