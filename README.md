@@ -7,3 +7,5 @@ This is my personal portfolio website built to showcase my projects, skills, and
 - Dedicated project showcase with detailed views
 - Clean and minimal user interface
 - Smooth and intuitive navigation
+
+---
