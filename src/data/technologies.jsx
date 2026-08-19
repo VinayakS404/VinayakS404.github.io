@@ -8,6 +8,8 @@ import java from "../assets/java-logo.png";
 import springBoot from "../assets/spring-boot-logo.png";
 import mySQL from "../assets/MySQL_logo.svg.png";
 import postgres from "../assets/Postgresql_elephant.svg.png";
+import mongodb from "../assets/MongoDB.png";
+import docker from "../assets/docker.png";
 
 const rawFrontEndData = [
   {
@@ -75,6 +77,21 @@ const rawBackEndData = [
     img: postgres,
     bg: "bg-[#41697d]",
   },
+{
+  name: "MongoDB",
+  desc: "NoSQL document database",
+  img: mongodb,
+  bg: "bg-[white]",
+},
+];
+
+const rawDevOpsCloudData = [
+  {
+    name: "Docker",
+    desc: "Containerization platform",
+    img: docker,
+    bg: "bg-[white]",
+  },
 ];
 
 export const frontEndData = rawFrontEndData.map((items, index) => ({
@@ -85,4 +102,9 @@ export const frontEndData = rawFrontEndData.map((items, index) => ({
 export const backEndData = rawBackEndData.map((items, index) => ({
   ...items,
   id: `backend-${items.name}-${index}`,
+}));
+
+export const devOpsCloudData = rawDevOpsCloudData.map((items, index) => ({
+  ...items,
+  id: `devops-${items.name}-${index}`,
 }));

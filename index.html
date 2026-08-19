@@ -17,17 +17,33 @@
       loop
       muted
       playsinline
+      preload="auto"
       id="bg-video"
       class="fixed top-0 left-0 w-full h-full object-cover opacity-50 z-0"
     >
-      <source src="/src/assets/13495-248644905.mp4" type="video/mp4" />
+      <source src="/src/assets/13495-248644905-firefox.mp4" type="video/mp4" />
     </video>
     <div class="bg-black fixed w-screen h-screen -z-10"></div>
-    <div id="root" class="relative z-10 min-h-screen "></div>
+    <div id="root" class="relative z-10 min-h-screen"></div>
 
     <script type="module" src="/src/main.jsx"></script>
     <script>
-      document.getElementById("bg-video").playbackRate = 1;
+      const backgroundVideo = document.getElementById("bg-video");
+
+      backgroundVideo.muted = true;
+      backgroundVideo.playbackRate = 1;
+
+      const playBackgroundVideo = () => {
+        backgroundVideo.play().catch(() => {});
+      };
+
+      if (backgroundVideo.readyState >= 3) {
+        playBackgroundVideo();
+      } else {
+        backgroundVideo.addEventListener("canplay", playBackgroundVideo, {
+          once: true,
+        });
+      }
     </script>
   </body>
 </html>

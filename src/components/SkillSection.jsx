@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { frontEndData, backEndData } from "../data/technologies";
+import { frontEndData, backEndData, devOpsCloudData } from "../data/technologies";
 import {
   cardClass,
   cardInnerBgClass,
@@ -61,9 +61,7 @@ function SkillCard({ items }) {
             {items.name}
           </p>
 
-          <p className="text-gray-300 text-sm hidden sm:block">
-            {items.desc}
-          </p>
+          <p className="text-gray-300 text-sm hidden sm:block">{items.desc}</p>
         </div>
       </div>
     </AnimatedDiv>
@@ -132,6 +130,25 @@ function SkillSection() {
 
             <div className={cardGridClass}>
               {backEndData.map((items) => (
+                <SkillCard key={items.id} items={items} />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col items-start">
+            <AnimatedDiv>
+              <p className="text-white mt-20 font-['Anton'] text-4xl">
+                DevOps & Cloud
+              </p>
+
+              <p className="text-gray-300 mt-5 max-w-3xl text-base md:text-[19px]">
+                Tools and platforms used to automate development, deployment,
+                infrastructure, and cloud-based applications.
+              </p>
+            </AnimatedDiv>
+
+            <div className={cardGridClass}>
+              {devOpsCloudData.map((items) => (
                 <SkillCard key={items.id} items={items} />
               ))}
             </div>
