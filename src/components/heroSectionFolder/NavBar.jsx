@@ -25,7 +25,7 @@ function NavBar({ setIsExtend, scrollRefs }) {
         }}
         className={`
           relative inline-flex items-center overflow-hidden rounded group py-1.5 px-8 transition-all
-          ${active === item ? "bg-blue-500 " : "text-white"}
+          ${active === item ? "bg-blue-500 bpm" : "text-white"}
         `}
       >
         <span

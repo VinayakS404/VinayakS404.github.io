@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import mapIcon from "../../assets/maps.png";
 import githubIcon from "../../assets/github.png";
 import linkedinIcon from "../../assets/linkedin.png";
@@ -17,6 +17,27 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
 
   const navRef = useRef();
   const dropdownRef = useRef();
+  const heroRef = useRef();
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -35,17 +56,19 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [setIsExtend]);
 
   const extendSubdiv = extendTabTittle.map((item) => {
     return (
       <div
-        className=" w-full h-15  flex items-center justify-center hover:border-y"
+        className="w-full h-15 flex items-center justify-center hover:border-y"
         key={item}
         onClick={() => {
           const id = item.toLowerCase();
-          scrollRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
-          setIsExtend(false); 
+          scrollRefs.current[id]?.scrollIntoView({
+            behavior: "smooth",
+          });
+          setIsExtend(false);
         }}
       >
         {item}
@@ -54,34 +77,46 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
   });
 
   return (
-    <div className="min-h-screen max-h-500  flex flex-col  items-center justify-center text-white px-8  gap-25 md:gap-35  overflow-x-hidden overflow-y-hidden">
+    <div
+      ref={heroRef}
+      className="min-h-screen max-h-500 flex flex-col items-center justify-center text-white px-8 gap-25 md:gap-35 overflow-x-hidden overflow-y-hidden"
+    >
       <div ref={navRef}>
         <NavBar setIsExtend={setIsExtend} scrollRefs={scrollRefs} />
       </div>
 
       {isExtend && (
         <div
-          className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50  bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145]  rounded-md overflow-hidden"
+          className="fixed z-100 right-1 top-14 flex flex-col items-center justify-center w-50 bg-[#202021]/60 backdrop-blur-xl border-t border-l border-[#404145] rounded-md overflow-hidden"
           ref={dropdownRef}
         >
           {extendSubdiv}
         </div>
       )}
 
-      <div className=" h-[60%] flex flex-col items-center justify-center  gap-3 pt-20 md:pt-40">
+      <div
+        className={`h-[60%] flex flex-col items-center justify-center gap-3 pt-20 md:pt-40 transition-all duration-1000 ease-out ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="flex items-center gap-1">
-          <span className="relative  h-2 w-2 md:h-2.5 md:w-2.5 mb-1 md:mb-0  bg-[#55ff00] rounded-full translate-y-0.5 "></span>
-          <p className="  text-sm  md:text-md bg-linear-to-r from-transparent via-black/90 to-transparent">
+          <span className="relative h-2 w-2 md:h-2.5 md:w-2.5 mb-1 md:mb-0 bg-[#55ff00] rounded-full translate-y-0.5"></span>
+
+          <p className="text-sm md:text-md bg-linear-to-r from-transparent via-black/90 to-transparent">
             available for work
           </p>
         </div>
+
         <div className="flex flex-col items-center justify-center gap-8">
-          <p className="font-['Anton'] text-6xl  w-full md:w-160  text-center bg-linear-to-r from-transparent via-black/90 to-transparent">
-            <span className="text-blue-500">Frontend&nbsp;</span>Dev Leveling Up
-            to
+          <p className="font-['Anton'] text-6xl w-full md:w-160 text-center bg-linear-to-r from-transparent via-black/90 to-transparent">
+            <span className="text-blue-500">Frontend&nbsp;</span>
+            Dev Leveling Up to
             <span className="text-blue-500">&nbsp;Full-Stack</span>
           </p>
-          <p className="text-center text-sm  md:text-xl  text-gray-300 bg-linear-to-r from-transparent via-black/90 to-transparent">
+
+          <p className="text-center text-sm md:text-xl text-gray-300 bg-linear-to-r from-transparent via-black/90 to-transparent">
             I&#39;m
             <span className="text-blue-500 font-bold">&nbsp;Vinayak S</span>,
             building web experiences while pursuing my BCA
@@ -89,10 +124,16 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
         </div>
       </div>
 
-      <div className="  h-[30%]  flex flex-col sm:flex-row  items-center sm:items-end justify-center text-2xl gap-3 md:gap-8 mb-[calc(100%-97%)] ">
-        <div className="flex flex-col items-center border-t border-l border-[#404145] md:border-none bg-[rgb(49,49,57)]/50 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none  p-5 rounded-2xl">
-          <div className=" ">
-            <div className=" flex gap-8 md:hidden">
+      <div
+        className={`h-[30%] flex flex-col sm:flex-row items-center sm:items-end justify-center text-2xl gap-3 md:gap-8 mb-[calc(100%-97%)] transition-all duration-1000 delay-300 ease-out ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+      >
+        <div className="flex flex-col items-center border-t border-l border-[#404145] md:border-none bg-[rgb(49,49,57)]/50 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-5 rounded-2xl">
+          <div>
+            <div className="flex gap-8 md:hidden">
               <a
                 href="https://github.com/VinayakS404"
                 target="_blank"
@@ -102,9 +143,10 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
                 <img
                   src={githubIcon}
                   alt="github icon"
-                  className=" h-10  md:h-9 "
+                  className="h-10 md:h-9"
                 />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/vinayak-s-390319369/"
                 target="_blank"
@@ -113,10 +155,11 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
               >
                 <img
                   src={linkedinIcon}
-                  alt="github icon"
-                  className="h-10  md:h-9"
+                  alt="linkedin icon"
+                  className="h-10 md:h-9"
                 />
               </a>
+
               <a
                 href="mailto:oreva.vinayak@gmail.com"
                 target="_blank"
@@ -125,18 +168,27 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
               >
                 <img
                   src={mailIcon}
-                  alt="github icon"
-                  className="h-10  md:h-9"
+                  alt="email icon"
+                  className="h-10 md:h-9"
                 />
               </a>
             </div>
           </div>
+
           <div className="flex gap-10 mt-5">
             <div className="flex items-center gap-1">
-              <img src={mapIcon} alt="pin icon" className=" h-3 md:h-5 " />
-              <p className="text-center text-sm  md:text-xl ">Kerala, India</p>
+              <img
+                src={mapIcon}
+                alt="pin icon"
+                className="h-3 md:h-5"
+              />
+
+              <p className="text-center text-sm md:text-xl">
+                Kerala, India
+              </p>
             </div>
-            <div className=" md:flex gap-3 hidden">
+
+            <div className="md:flex gap-3 hidden">
               <a
                 href="https://github.com/VinayakS404"
                 target="_blank"
@@ -146,9 +198,10 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
                 <img
                   src={githubIcon}
                   alt="github icon"
-                  className={` h-10  md:h-9 ${iconHover} `}
+                  className={`h-10 md:h-9 ${iconHover}`}
                 />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/vinayak-s-390319369/"
                 target="_blank"
@@ -157,25 +210,28 @@ function HeroSection({ isExtend, setIsExtend, scrollRefs }) {
               >
                 <img
                   src={linkedinIcon}
-                  alt="github icon"
-                  className={` h-10  md:h-9 ${iconHover} `}
+                  alt="linkedin icon"
+                  className={`h-10 md:h-9 ${iconHover}`}
                 />
               </a>
+
               <a
-                href="mailto:oreva.vinayak.com"
+                href="mailto:oreva.vinayak@gmail.com"
                 target="_blank"
                 rel="noreferrer"
                 className="shrink-0"
               >
                 <img
                   src={mailIcon}
-                  alt="github icon"
-                  className={` h-10  md:h-9 ${iconHover} `}
+                  alt="email icon"
+                  className={`h-10 md:h-9 ${iconHover}`}
                 />
               </a>
             </div>
 
-            <p className="text-center   text-sm  md:text-xl ">Download CV</p>
+            <p className="text-center text-sm md:text-xl">
+              Download CV
+            </p>
           </div>
         </div>
       </div>
