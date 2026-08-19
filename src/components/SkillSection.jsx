@@ -22,7 +22,7 @@ function AnimatedDiv({ children, className = "" }) {
       },
       {
         threshold: 0.2,
-      }
+      },
     );
 
     if (ref.current) {
@@ -35,10 +35,8 @@ function AnimatedDiv({ children, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out ${
-        visible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-10"
+      className={`${className} transition-[opacity,transform] duration-700 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {children}
@@ -46,62 +44,40 @@ function AnimatedDiv({ children, className = "" }) {
   );
 }
 
-function SkillSection() {
-  const frontEndTech = frontEndData.map((items) => {
-    return (
-      <AnimatedDiv key={items.id} className={cardClass}>
-        <div className={`${items.bg} ${cardInnerBgClass}`}>
-          <img
-            src={items.img}
-            alt={`${items.name}-icon`}
-            className={items.height || "h-10"}
-          />
-
-        </div>
-
-        <div className="flex flex-col sm:ml-5">
-          <p className="text-white text-sm md:text font-bold">
-            {items.name}
-          </p>
-
-          <p className="text-gray-300 text-sm hidden sm:block">
-            {items.desc}
-          </p>
-        </div>
-      </AnimatedDiv>
-    );
-  });
-
-  const backEndTech = backEndData.map((items) => {
-    return (
-      <AnimatedDiv key={items.id} className={cardClass}>
-        <div className={`${items.bg} ${cardInnerBgClass}`}>
-          <img
-            src={items.img}
-            alt={`${items.name}-icon`}
-            className={items.height || "h-10"}
-          />
-        </div>
-
-        <div className="flex flex-col sm:ml-5">
-          <p className="text-white text-sm md:text font-bold">
-            {items.name}
-          </p>
-
-          <p className="text-gray-300 text-sm hidden sm:block">
-            {items.desc}
-          </p>
-        </div>
-      </AnimatedDiv>
-    );
-  });
-
+function SkillCard({ items }) {
   return (
-    <div
-      className={`relative mt-50 flex flex-col px-10 ${bgBlurOverlay} ${sectionBase}`}
-    >
+    <AnimatedDiv className="w-full">
+      <div className={cardClass}>
+        <div className={`${items.bg} ${cardInnerBgClass}`}>
+          <img
+            src={items.img}
+            alt={`${items.name}-icon`}
+            className={items.height || "h-10"}
+          />
+        </div>
+
+        <div className="flex flex-col sm:ml-5">
+          <p className="text-white text-sm md:text-base font-bold">
+            {items.name}
+          </p>
+
+          <p className="text-gray-300 text-sm hidden sm:block">
+            {items.desc}
+          </p>
+        </div>
+      </div>
+    </AnimatedDiv>
+  );
+}
+
+function SkillSection() {
+  return (
+    <div className={`relative mt-50 flex flex-col px-10 ${sectionBase}`}>
+      <div className={bgBlurOverlay} />
+
       <div className="relative z-10 w-full flex flex-col items-center justify-center md:px-10">
         <div>
+          {/* Current Technologies */}
           <div className="flex flex-col items-start">
             <AnimatedDiv>
               <p className="text-white font-['Anton'] text-[45px] md:text-6xl w-full max-w-2xl leading-tight">
@@ -121,6 +97,7 @@ function SkillSection() {
             </AnimatedDiv>
           </div>
 
+          {/* Front-end */}
           <div className="flex flex-col items-start">
             <AnimatedDiv>
               <p className="text-white mt-20 font-['Anton'] text-4xl">
@@ -134,10 +111,13 @@ function SkillSection() {
             </AnimatedDiv>
 
             <div className={cardGridClass}>
-              {frontEndTech}
+              {frontEndData.map((items) => (
+                <SkillCard key={items.id} items={items} />
+              ))}
             </div>
           </div>
 
+          {/* Back-end */}
           <div className="flex flex-col items-start">
             <AnimatedDiv>
               <p className="text-white mt-20 font-['Anton'] text-4xl">
@@ -151,7 +131,9 @@ function SkillSection() {
             </AnimatedDiv>
 
             <div className={cardGridClass}>
-              {backEndTech}
+              {backEndData.map((items) => (
+                <SkillCard key={items.id} items={items} />
+              ))}
             </div>
           </div>
         </div>
