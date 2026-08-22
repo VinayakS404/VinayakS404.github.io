@@ -64,7 +64,7 @@ function ProjectSection() {
           </div>
         </AnimatedDiv>
 
-        <AnimatedDiv className="mt-10">
+        <AnimatedDiv className="mt-2">
           <ProjectMoreNLessBtn
             setIsDetailed={setIsDetailed}
             isDetailed={isDetailed}

@@ -1,14 +1,15 @@
 const projectsRaw = [
   {
     id: 1,
-    name: "APPLE PIE",
-    technologies: ["JS", "React", "SQL", "Python"],
-    desc: "adf I am curre the technologies I'm currently working with as I continue building projects and improving my practical skills I am currently pursuing Bachelor of Computer Applications (BCA) while learning Java full-stack development alongside my studies. These are the technologies I'm currently working with as I continue building projects and improving my practical skills",
+    name: "Comming soon",
+    technologies: ["none", "none", "none", "none"],
+    desc: "In progress",
     website: true,
-    websiteLink: "https://www.youtube.com/",
-    sourceLink: "https://github.com/",
+    websiteLink: "https://dinogameonline.io/",
+    sourceLink: "https://github.com/VinayakS404",
     img: "variable",
   },
+  /*
   {
     id: 2,
     name: "APPLE PIE",
@@ -59,6 +60,7 @@ const projectsRaw = [
     sourceLink: "github.com///",
     img: "variable",
   },
+  */
 ];
 
 export const projects = projectsRaw.map((items, index) => ({

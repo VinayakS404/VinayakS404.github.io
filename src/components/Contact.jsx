@@ -121,7 +121,7 @@ function Contact() {
   };
 
   return (
-    <div className="relative w-full px-10 pb-10 overflow-hidden">
+    <div className="relative w-full px-3 pb-10 overflow-hidden">
       <div className="absolute inset-0 backdrop-blur-[5px] pointer-events-none" />
 
       <div className="relative z-10 max-w-287 mx-auto">
