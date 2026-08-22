@@ -1,6 +1,7 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { useState, useRef } from "react";
 import "./App.css";
+
 import {
   HeroSection,
   SkillSection,
@@ -12,10 +13,11 @@ import {
 function App() {
   const [isExtend, setIsExtend] = useState(false);
   const scrollRefs = useRef({});
+
   return (
     <Routes>
       <Route
-        index
+        path="/"
         element={
           <>
             <section ref={(el) => (scrollRefs.current.home = el)}>
@@ -33,6 +35,7 @@ function App() {
             <section ref={(el) => (scrollRefs.current.about = el)}>
               <AboutMe />
             </section>
+
             <section ref={(el) => (scrollRefs.current.project = el)}>
               <ProjectSection />
             </section>
