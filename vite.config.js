@@ -9,6 +9,7 @@ export default defineConfig({
     tailwindcss(),
     qrcode(), // 2. Add it here
   ],
+  base: "/",
   server: {
     host: true,
     port: 5173,
