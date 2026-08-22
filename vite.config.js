@@ -10,7 +10,7 @@ export default defineConfig({
     qrcode(),
   ],
 
-  base: "/vinayak.github.io/",
+  base: "/",
 
   server: {
     host: true,
