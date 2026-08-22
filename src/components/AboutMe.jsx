@@ -38,7 +38,7 @@ function AnimatedDiv({ children, className = "" }) {
 
 function AboutMe() {
   return (
-    <div className="relative pt-50 flex flex-col items-center justify-center px-2 md:px-18 w-full backdrop-blur-[5px] pointer-events-none">
+    <div className="relative pt-30 flex flex-col items-center justify-center px-2 md:px-18 w-full backdrop-blur-[5px] pointer-events-none">
       <div className="max-w-287">
         <AnimatedDiv>
           <div className="flex flex-col items-start">
@@ -68,7 +68,7 @@ function AboutMe() {
             CSS for the frontend.
             <br />
             <br />
-            I specialize in creating clean, functional user interfaces and am
+            I specialize in creating clean, functional user interfaces and I am
             currently expanding my capabilities into enterprise-grade backend
             architecture. Beyond my own development work, I mentor my peers and
             juniors, guiding them through frontend fundamentals and helping them
@@ -78,6 +78,10 @@ function AboutMe() {
             Currently, I am also exploring
             <span className="text-blue-500 font-bold">
               &nbsp;Data Science&nbsp;
+            </span>
+            and
+            <span className="text-blue-500 font-bold">
+              &nbsp;Machine Learning&nbsp;
             </span>
             through my major elective, looking for ways to integrate data-driven
             insights into full-stack web environments. My goal is to build
