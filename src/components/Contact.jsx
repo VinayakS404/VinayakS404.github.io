@@ -194,7 +194,9 @@ function Contact() {
               <span className="text-blue-500">
                 React
               </span>{" "}
-              & Tailwind CSS
+              & <span className="text-blue-500">
+                Spring Boot
+              </span>{" "}
             </p>
           </div>
         </AnimatedDiv>
