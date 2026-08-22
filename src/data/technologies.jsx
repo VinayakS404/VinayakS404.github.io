@@ -5,7 +5,7 @@ import react from "../assets/react-logo.svg";
 import tailwind from "../assets/tailwind-logo.svg";
 import figma from "../assets/figma-logo.svg";
 import java from "../assets/Java-logo.png";
-import springBoot from "../assets/spring-boot-logo.png";
+import springBoot from "../assets/Spring-boot-logo.png";
 import mySQL from "../assets/MySQL_logo.svg.png";
 import postgres from "../assets/Postgresql_elephant.svg.png";
 import mongodb from "../assets/MongoDB.png";
