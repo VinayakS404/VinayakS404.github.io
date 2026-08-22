@@ -38,7 +38,7 @@ function AnimatedDiv({ children, className = "" }) {
 
 function AboutMe() {
   return (
-    <div className="relative pt-50 flex flex-col items-center justify-center px-10 md:px-18 w-full backdrop-blur-[5px] pointer-events-none">
+    <div className="relative pt-50 flex flex-col items-center justify-center px-2 md:px-18 w-full backdrop-blur-[5px] pointer-events-none">
       <div className="max-w-287">
         <AnimatedDiv>
           <div className="flex flex-col items-start">
@@ -47,16 +47,11 @@ function AboutMe() {
               <span className="text-blue-500 font-bold">Me</span>
             </p>
 
-            <p className="text-gray-300 pt-4 md:pt-8 text-base md:text-[19px]">
-              19-year-old Full-Stack Developer and BCA student at Kerala
-              University, specializing in building cinematic web applications
-              with Java, React, and Tailwind CSS.
-            </p>
           </div>
         </AnimatedDiv>
 
-        <AnimatedDiv className="mt-20">
-          <div className="text-white text-lg md:text-[19px]">
+        <AnimatedDiv className="mt-10">
+          <div className="text-gray-300 pt-0 md:pt-8 text-base md:text-[19px]">
             I am a
             <span className="text-blue-500 font-bold">
               &nbsp;19-year-old&nbsp;

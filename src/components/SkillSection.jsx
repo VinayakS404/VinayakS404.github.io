@@ -70,7 +70,7 @@ function SkillCard({ items }) {
 
 function SkillSection() {
   return (
-    <div className={`relative mt-50 flex flex-col px-10 ${sectionBase}`}>
+    <div className={`relative mt-50 flex flex-col px-5 ${sectionBase}`}>
       <div className={bgBlurOverlay} />
 
       <div className="relative z-10 w-full flex flex-col items-center justify-center md:px-10">
