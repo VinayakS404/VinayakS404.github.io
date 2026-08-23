@@ -135,7 +135,7 @@ function Contact() {
 
             <p className="text-gray-300 pt-5 md:pt-8 text-base md:text-[19px] max-w-3xl">
               Have a project in mind, want to collaborate, or just want to talk
-              about technology? Feel free to reach out.
+              about technology? Feel free to reach out
             </p>
           </div>
         </AnimatedDiv>
@@ -149,7 +149,7 @@ function Contact() {
 
               <p className="text-gray-400 mt-4 text-sm md:text-base">
                 I'm always open to discussing new projects, ideas,
-                opportunities, or collaborations.
+                opportunities, or collaborations
               </p>
 
               <div className="flex flex-col gap-5 mt-7">

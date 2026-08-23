@@ -72,7 +72,7 @@ function AboutMe() {
             currently expanding my capabilities into enterprise-grade backend
             architecture. Beyond my own development work, I mentor my peers and
             juniors, guiding them through frontend fundamentals and helping them
-            troubleshoot their first web projects.
+            troubleshoot their first web projects
             <br />
             <br />
             Currently, I am also exploring
@@ -86,7 +86,7 @@ function AboutMe() {
             through my major elective, looking for ways to integrate data-driven
             insights into full-stack web environments. My goal is to build
             software that is technically sound, easy to maintain, and helpful to
-            the people using it.
+            the people using it
           </div>
         </AnimatedDiv>
       </div>

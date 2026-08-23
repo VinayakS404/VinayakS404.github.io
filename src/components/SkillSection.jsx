@@ -143,7 +143,7 @@ function SkillSection() {
 
               <p className="text-gray-300 mt-5 max-w-3xl text-base md:text-[19px]">
                 Tools and platforms used to automate development, deployment,
-                infrastructure, and cloud-based applications.
+                infrastructure, and cloud-based applications
               </p>
             </AnimatedDiv>
 
