@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import {
@@ -8,8 +9,9 @@ import {
   AboutMe,
   Contact,
 } from "./components";
+import AdminMessages from "./components/AdminMessages"; 
 
-function App() {
+function HomePage() {
   const [isExtend, setIsExtend] = useState(false);
   const scrollRefs = useRef({});
 
@@ -39,6 +41,15 @@ function App() {
         <Contact />
       </section>
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/admin/messages" element={<AdminMessages />} />
+    </Routes>
   );
 }
 

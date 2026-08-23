@@ -3,5 +3,13 @@ import SkillSection from "./SkillSection";
 import ProjectSection from "./projectSectionFolder/ProjectSection";
 import AboutMe from "./AboutMe";
 import Contact from "./Contact";
+import AdminMessages from "./AdminMessages";
 
-export { HeroSection, SkillSection, ProjectSection, AboutMe,Contact };
+export {
+  HeroSection,
+  SkillSection,
+  ProjectSection,
+  AboutMe,
+  Contact,
+  AdminMessages,
+};
