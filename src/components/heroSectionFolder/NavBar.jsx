@@ -4,12 +4,20 @@ import { useState } from "react";
 function NavBar({ setIsExtend, scrollRefs }) {
   const [active, setActive] = useState("");
 
-  const scrollTo = (id) => {
+  const scrollTo = (id, item) => {
     const element = scrollRefs.current[id];
 
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsExtend(false);
+
+      // Blue highlight
+      setActive(item);
+
+      // Return to normal after 300ms
+      setTimeout(() => {
+        setActive("");
+      }, 300);
     }
   };
 
@@ -22,45 +30,22 @@ function NavBar({ setIsExtend, scrollRefs }) {
   const navArray = navBarTitle.map((item) => (
     <li
       key={item}
-      onClick={() => {
-        setActive(item);
-        scrollTo(item.toLowerCase());
-      }}
+      onClick={() => scrollTo(item.toLowerCase(), item)}
       className={`
-        relative isolate overflow-hidden
+        relative
         inline-flex items-center justify-center
         rounded-md px-8 py-1.5
         text-base text-white
         cursor-pointer
-        transition-all duration-300 ease-out
-        hover:scale-[1.03]
+        transition-all duration-200
         ${
           active === item
-            ? "bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.35)]"
+            ? "bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.45)]"
             : "bg-transparent"
         }
       `}
     >
-      {/* Hover background */}
-      {active !== item && (
-        <span
-          className="
-            absolute inset-0 -z-10
-            bg-[#404047]
-            origin-bottom-left
-            scale-x-0 scale-y-0
-            rounded-md
-            transition-transform duration-300 ease-out
-            group-hover:scale-x-100
-            group-hover:scale-y-100
-          "
-        />
-      )}
-
-      {/* Text */}
-      <span className="relative z-10 transition-transform duration-300 ease-out group-hover:scale-105">
-        {item}
-      </span>
+      <span>{item}</span>
     </li>
   ));
 
