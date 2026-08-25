@@ -19,13 +19,13 @@ function AdminMessages() {
       const credentials = btoa(`${username}:${password}`);
 
       const response = await fetch(
-        "http://localhost:8080/api/admin/message",
+        `${import.meta.env.VITE_API_URL}/api/admin/message`,
         {
           method: "GET",
           headers: {
             Authorization: `Basic ${credentials}`,
           },
-        }
+        },
       );
 
       if (response.status === 401) {
@@ -122,9 +122,7 @@ function AdminMessages() {
           />
 
           {error && (
-            <p style={{ color: "#ff5555", marginBottom: "15px" }}>
-              {error}
-            </p>
+            <p style={{ color: "#ff5555", marginBottom: "15px" }}>{error}</p>
           )}
 
           <button
