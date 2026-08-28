@@ -44,7 +44,7 @@ const rawFrontEndData = [
     bg: "bg-[#32555e]",
   },
   {
-    name: "Figmal",
+    name: "Figma",
     desc: "Interface design tool",
     img: figma,
     bg: "bg-[#305522]",
